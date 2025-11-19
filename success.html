@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¡Solicitud Enviada! - Devri Solutions × La Salle</title>
+    <meta
+      name="description"
+      content="Tu solicitud ha sido enviada exitosamente. Nos pondremos en contacto contigo pronto."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Nunito", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: linear-gradient(135deg, #b1ff9df8 0%, #e8bdfff8 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+        background: white;
+        border-radius: 30px;
+        padding: clamp(2rem, 5vw, 4rem);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        animation: slideUp 0.6s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .check-icon {
+        width: clamp(80px, 15vw, 120px);
+        height: clamp(80px, 15vw, 120px);
+        background: linear-gradient(135deg, #27c008f8, #951cff);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        animation: scaleIn 0.5s ease-out 0.3s both;
+      }
+
+      @keyframes scaleIn {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      .checkmark {
+        width: 60%;
+        height: 60%;
+        border: none;
+        stroke: white;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        animation: draw 0.5s ease-out 0.5s both;
+      }
+
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .checkmark {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 800;
+        color: #0a0a0a;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .highlight {
+        background: linear-gradient(135deg, #27c008f8, #951cff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        color: #0a0a0a;
+        opacity: 0.8;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-box {
+        background: linear-gradient(135deg, #b1ff9df8, #e8bdfff8);
+        padding: clamp(1.5rem, 3vw, 2rem);
+        border-radius: 20px;
+        margin: 2rem 0;
+        border-left: 4px solid #27c008f8;
+      }
+
+      .info-box h3 {
+        font-size: clamp(1.1rem, 3vw, 1.3rem);
+        font-weight: 800;
+        color: #0a0a0a;
+        margin-bottom: 1rem;
+      }
+
+      .info-box ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+      }
+
+      .info-box li {
+        font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+        color: #0a0a0a;
+        margin-bottom: 0.75rem;
+        padding-left: 2rem;
+        position: relative;
+        line-height: 1.5;
+      }
+
+      .info-box li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #27c008f8;
+        font-weight: 800;
+        font-size: 1.2rem;
+      }
+
+      .countdown {
+        background: rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+      }
+
+      .countdown-text {
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        color: #0a0a0a;
+        opacity: 0.7;
+        margin-bottom: 0.5rem;
+      }
+
+      .countdown-timer {
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 800;
+        background: linear-gradient(135deg, #27c008f8, #951cff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .button {
+        display: inline-block;
+        background: linear-gradient(135deg, #27c008f8, #951cff);
+        color: white;
+        padding: clamp(1rem, 2.5vw, 1.25rem) clamp(2rem, 4vw, 3rem);
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        text-decoration: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        margin-top: 1rem;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        border: 2px solid #e0e0e0;
+        color: #0a0a0a;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: clamp(0.85rem, 2vw, 0.95rem);
+        transition: all 0.2s;
+        background: white;
+      }
+
+      .social-link:hover {
+        border-color: #27c008f8;
+        background: #b1ff9df8;
+        transform: translateY(-2px);
+      }
+
+      .footer-note {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #e0e0e0;
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        color: #0a0a0a;
+        opacity: 0.6;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          border-radius: 20px;
+        }
+
+        .social-links {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .social-link {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="check-icon">
+        <svg class="checkmark" viewBox="0 0 52 52">
+          <path d="M14 27l8 8 16-16" />
+        </svg>
+      </div>
+
+      <h1>
+        ¡<span class="highlight">Solicitud Enviada</span><br />con Éxito! 🎉
+      </h1>
+
+      <p>
+        Hemos recibido tu información y nos pondremos en contacto contigo
+        <strong>en menos de 24 horas</strong>.
+      </p>
+
+      <div class="info-box">
+        <h3>📬 ¿Qué sigue ahora?</h3>
+        <ul>
+          <li>Revisaremos tu solicitud en detalle</li>
+          <li>Analizaremos los requerimientos de tu proyecto</li>
+          <li>Te enviaremos una propuesta personalizada</li>
+          <li>Agendaremos tu consultoría inicial gratuita</li>
+        </ul>
+      </div>
+
+      <div class="countdown">
+        <div class="countdown-text">
+          Serás redirigido a la página principal en:
+        </div>
+        <div class="countdown-timer" id="countdown">10</div>
+        <div class="countdown-text">segundos</div>
+      </div>
+
+      <a href="index.html" class="button"> Volver al Inicio Ahora </a>
+
+      <div class="social-links">
+        <a href="mailto:contacto@devri.com.mx" class="social-link">
+          📧 Email
+        </a>
+        <a
+          href="https://wa.me/5215512345678"
+          target="_blank"
+          class="social-link"
+        >
+          💬 WhatsApp
+        </a>
+        <a href="https://devri.com.mx" target="_blank" class="social-link">
+          🌐 Sitio Web
+        </a>
+      </div>
+
+      <div class="footer-note">
+        <strong>Devri Solutions × La Salle</strong><br />
+        Acelerando el éxito de emprendedores con tecnología profesional
+      </div>
+    </div>
+
+    <script>
+      // Countdown timer
+      let seconds = 20;
+      const countdownElement = document.getElementById("countdown");
+
+      const countdown = setInterval(() => {
+        seconds--;
+        countdownElement.textContent = seconds;
+
+        if (seconds <= 0) {
+          clearInterval(countdown);
+          // Redirigir a la página principal
+          window.location.href = "index.html";
+        }
+      }, 1000);
+
+      // Permitir que el usuario cancele la redirección si interactúa
+      let userInteracted = false;
+
+      document.addEventListener("click", (e) => {
+        if (
+          e.target.classList.contains("button") ||
+          e.target.classList.contains("social-link")
+        ) {
+          clearInterval(countdown);
+          userInteracted = true;
+        }
+      });
+    </script>
+  </body>
+</html>
