@@ -1,0 +1,4 @@
+# Redirect all requests to index.html for SPA routing
+# except for success.html which should be served directly
+/success.html /success.html 200
+/* /index.html 200

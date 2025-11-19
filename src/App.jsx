@@ -1045,10 +1045,10 @@ const LaSalleLanding = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }} 
-            name="contact-lasalle" 
+            transition={{ duration: 0.6, delay: 0.3 }}
+            name="contact-lasalle"
             method="POST"
-            action="success.html" 
+            action="/success.html"
             data-netlify="true"
             onSubmit={handleSubmit}
             style={{
