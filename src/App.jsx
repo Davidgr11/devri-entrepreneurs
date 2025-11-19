@@ -9,6 +9,7 @@ const LaSalleLanding = () => {
     email: '',
     phone: '',
     projectType: '',
+    business: '',
     message: ''
   });
 
@@ -1186,7 +1187,7 @@ const LaSalleLanding = () => {
                 type="text"
                 name="business"
                 required
-                value={formData.name}
+                value={formData.business}
                 onChange={handleInputChange}
                 style={{
                   width: '100%',
