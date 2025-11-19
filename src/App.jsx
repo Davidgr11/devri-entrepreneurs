@@ -145,11 +145,24 @@ const LaSalleLanding = () => {
   };
 
   const handleSubmit = (e) => {
-    // No evitamos el comportamiento por defecto: dejamos que el formulario
-    // se envíe de forma nativa (Netlify Forms) usando el atributo
-    // `action` y `data-netlify="true"` en el formulario.
-    // Conservamos el log para depuración.
-    console.log('Formulario (intentando enviar):', formData);
+    e.preventDefault();
+
+    // Crear FormData para Netlify
+    const formDataToSubmit = new FormData(e.target);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formDataToSubmit).toString()
+    })
+      .then(() => {
+        // Redirigir a success.html después de enviar
+        window.location.href = '/success.html';
+      })
+      .catch((error) => {
+        console.error('Error al enviar el formulario:', error);
+        alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+      });
   };
 
   return (
@@ -1048,8 +1061,8 @@ const LaSalleLanding = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             name="contact-lasalle"
             method="POST"
-            action="/success.html"
             data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             style={{
               backgroundColor: colors.cardLight,
@@ -1060,6 +1073,11 @@ const LaSalleLanding = () => {
             }}
           >
             <input type="hidden" name="form-name" value="contact-lasalle" />
+            <p style={{ display: 'none' }}>
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
             
             <div style={{ marginBottom: '1.5rem' }}>
               <label style={{ 

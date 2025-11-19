@@ -7,6 +7,25 @@
     <title>Devri Solutions</title>
   </head>
   <body>
+    <!-- Hidden form for Netlify Forms detection -->
+    <form name="contact-lasalle" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="projectType">
+        <option value="Sitio Web Profesional">Sitio Web Profesional</option>
+        <option value="Pagina de Aterrizaje">Página de Aterrizaje</option>
+        <option value="Tienda en Línea">Tienda en Línea (E-commerce)</option>
+        <option value="Sistema de Citas">Sistema de Citas/Reservaciones</option>
+        <option value="Portal para Clientes">Portal para Clientes</option>
+        <option value="Sistema de Gestión">Sistema de Gestión</option>
+        <option value="Aplicación Personalizada">Aplicación Personalizada</option>
+        <option value="No estoy seguro">No estoy seguro, necesito asesoría</option>
+      </select>
+      <input type="text" name="business" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
