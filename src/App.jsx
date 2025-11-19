@@ -1163,6 +1163,7 @@ const LaSalleLanding = () => {
               >
                 <option value="">Selecciona una opción</option>
                 <option value="Sitio Web Profesional">Sitio Web Profesional</option>
+                <option value="Pagina de Aterrizaje">Página de Aterrizaje</option>
                 <option value="Tienda en Línea">Tienda en Línea (E-commerce)</option>
                 <option value="Sistema de Citas">Sistema de Citas/Reservaciones</option>
                 <option value="Portal para Clientes">Portal para Clientes</option>
@@ -1179,11 +1180,11 @@ const LaSalleLanding = () => {
                 fontWeight: 700,
                 fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
               }}>
-                Nombre del emprendimiento *
+                Nombre del emprendimiento/negocio *
               </label>
               <input
                 type="text"
-                name="name"
+                name="business"
                 required
                 value={formData.name}
                 onChange={handleInputChange}
