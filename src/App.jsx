@@ -145,9 +145,11 @@ const LaSalleLanding = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // El formulario se enviará a Netlify automáticamente
-    console.log('Formulario enviado:', formData);
+    // No evitamos el comportamiento por defecto: dejamos que el formulario
+    // se envíe de forma nativa (Netlify Forms) usando el atributo
+    // `action` y `data-netlify="true"` en el formulario.
+    // Conservamos el log para depuración.
+    console.log('Formulario (intentando enviar):', formData);
   };
 
   return (
